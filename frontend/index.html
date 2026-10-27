@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ESP32 IoT 대시보드</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <!-- 로그인 / 회원가입 -->
+  <section id="auth-view" class="card auth">
+    <h1>XIAO ESP32S3 IoT</h1>
+    <div class="tabs">
+      <button id="tab-login" class="tab active">로그인</button>
+      <button id="tab-signup" class="tab">회원가입</button>
+    </div>
+    <form id="auth-form">
+      <input id="username" placeholder="아이디 (3자 이상)" autocomplete="username" required />
+      <input id="password" type="password" placeholder="비밀번호 (4자 이상)" autocomplete="current-password" required />
+      <button type="submit" id="auth-submit">로그인</button>
+    </form>
+    <p id="auth-msg" class="msg"></p>
+  </section>
+
+  <!-- 대시보드 -->
+  <section id="dash-view" class="hidden">
+    <header>
+      <h1>대시보드</h1>
+      <div>
+        <select id="device-select"></select>
+        <span id="who"></span>
+        <button id="logout" class="ghost">로그아웃</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="card stat">
+        <div class="label">온도 (칩 내부)</div>
+        <div class="value" id="v-temp">--</div>
+      </div>
+      <div class="card stat">
+        <div class="label">아날로그 (A0)</div>
+        <div class="value" id="v-analog">--</div>
+      </div>
+      <div class="card stat">
+        <div class="label">WiFi RSSI</div>
+        <div class="value" id="v-rssi">--</div>
+      </div>
+      <div class="card stat">
+        <div class="label">디바이스 상태</div>
+        <div class="value small" id="v-online">--</div>
+        <div class="sub" id="v-seen"></div>
+      </div>
+    </div>
+
+    <div class="card led-card">
+      <div>
+        <div class="label">LED 제어 (GPIO21 내장 LED)</div>
+        <div class="led-status"><span id="led-dot" class="dot"></span><span id="led-text">--</span></div>
+      </div>
+      <div class="btns">
+        <button id="led-on">ON</button>
+        <button id="led-off" class="ghost">OFF</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">센서 기록 (최근 50개)</div>
+      <canvas id="chart" height="110"></canvas>
+    </div>
+    <p class="msg" id="dash-msg"></p>
+  </section>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
