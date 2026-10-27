@@ -15,7 +15,7 @@
 // ===== 사용자 설정 =====
 const char* WIFI_SSID     = "YOUR_WIFI_SSID";
 const char* WIFI_PASSWORD = "YOUR_WIFI_PASSWORD";
-const char* API_BASE      = "https://esp32-iot-api.onrender.com";  // Render 배포 주소
+const char* API_BASE      = "https://esp32-iot-api-bici.onrender.com";  // Render 배포 주소
 const char* DEVICE_KEY    = "YOUR_DEVICE_KEY";                      // 백엔드 DEVICE_API_KEY 와 동일
 const char* DEVICE_ID     = "xiao-s3-01";
 const unsigned long INTERVAL_MS = 2000;
